@@ -1,0 +1,2314 @@
+<<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <title> HOUSE PRICE PREDICTION</title>
+  <style type="text/css">
+  .form-row .col h4 span {
+	font-size: 18px;
+}
+  .form-row .col h4 {
+	font-size: 24px;
+}
+  .form-row .col h4 span {
+	color: #00F;
+}
+  .form-row .col h4 span {
+	font-size: 50px;
+}
+  .form-row .col h4 span {
+	font-weight: bold;
+}
+  </style>
+  </head>
+  <body>
+  
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="https://www.linkedin.com/feed/">Linkedin</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://127.0.0.1:5000/">HOME PAGE <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">STACK OVERFLOW</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MY PROJECT
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://127.0.0.1:5000/housePricePrediction">House Price Prediction</a>
+          <a class="dropdown-item" href="http://127.0.0.1:5000/blightTicketPaymentPrediction">Blight Ticket Prediction</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="http://127.0.0.1:5000/vehiclePricePreiction">Vehicle Price Prediction</a>
+        </div>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">GITHUB</a>
+      </li>
+      
+     <li class="nav-item">
+        <a class="nav-link" href="#">KAGGLE</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" size="45">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+   
+   
+    
+    <h1 align='center'> House Price Prediction</h1>
+ 
+
+
+<table width="50%" border="0" align="center">
+  <tr>
+    <th scope="row">
+      <form action="#" method="POST" target="self"> 
+  <div class="form-row">
+    <div class="col">
+      
+      
+      
+      <p>
+        <h4 color='red'> PREDICTED HOUSE PRICE:  <span> {{output}} </span> </h4>
+      </p>
+      <p>
+        <input type="text" name="OverallQual" class="form-control" placeholder=" Rates the overall material and finish of the house" size="30" required autofocus/>
+      </p>
+      
+      <p>
+        <input type="text" name="GrLivArea" class="form-control" placeholder="Above grade (ground) living area square feet" size="30" required/>
+      </p>
+      
+      <p>
+        <input type="text"  name="1stFlrSF" class="form-control" placeholder="First Floor Square Feet" size="30" required />
+      </p>
+      <p>
+        <input type="text" name="GarageCars" class="form-control" placeholder="Number of Cars that can park in garage" size="30" required/>
+      </p>
+
+      <p>
+        <input type="text" name="LotArea" class="form-control" placeholder="Lot size in square feet" size="30"required />
+      </p>
+     <p>
+        <input type="text" name="MasVnrArea" class="form-control" placeholder="Masonry veneer area in square feet" size="30" required/>
+      </p>
+      <p>
+        <input type="text" name="YearBuilt" class="form-control" placeholder="Year Built" size="30" required/>
+      </p>
+      <p>
+        <input type="text" name="YearRemodAdd" class="form-control" placeholder="Remodel date (same as construction date if no remodeling or additions)" size="30" required/>
+      </p>
+      
+      <p>
+      
+         <input type="text" name="LotFrontage" class="form-control" placeholder=" Linear feet of street connected to property" size="30" required/>
+     </p>
+      <p>
+        <input type="text" name="BsmtUnfSF" class="form-control" placeholder="Unfinished square feet of basement area" size="30" required/>
+      </p>
+      <p>
+        <input type="text" name="TotRmsAbvGrd" class="form-control" placeholder="Total rooms above grade (does not include bathrooms)" size="30" required />
+      </p>
+      <p>
+        <input type="text" name="MoSold" class="form-control" placeholder="Month Sold (1,2,3,.....12)" size="30" required/>
+      </p>      
+       <p>
+        <input type="text" name="Fireplaces" class="form-control" placeholder="Number of fireplaces" size="30" required/>
+      </p>  
+      
+      <p>
+        <input type="text" name="WoodDeckSF" class="form-control" placeholder="Wood deck area in square feet" size="30" required/>
+      </p>
+      <p>
+        <input type="text" name="OpenPorchSF" class="form-control" placeholder="Open porch area in square feet" size="30" required/>
+      </p>
+      <p>
+        <input type="text" name="OverallCond" class="form-control" placeholder="Overall Condition of property (1,2,3,4,......10" size="30" required/>
+      </p>
+      <p>
+        <input type="text" name="CentralAir" class="form-control" placeholder=" Central air conditioning ( Y , N )" size="30" required/>
+      </p>
+
+
+      <p>
+      <button class="btn btn-primary" id="BsmtFinSF1" type="submit" formmethod='post' >Predict House Value</button>
+
+      </p>
+          <table width="50%" border="0">
+      <tr>
+        <th scope="row">&nbsp;</th>
+      </tr>
+    </table>
+      
+      
+    </div>
+  </div>
+  
+  
+</form></th>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="content">
+    <table width="80%" border="0">
+      <tr>
+        <th scope="row"><table border="1" align="center" cellpadding="8" cellspacing="0">
+          <col width="241" />
+          <col width="328" />
+          <tr>
+            <td colspan="2" width="569"><blockquote>
+              <blockquote>
+                <blockquote>
+                  <blockquote>
+                    <blockquote>
+                      <p>DESCRIPTIONS </p>
+                    </blockquote>
+                  </blockquote>
+                </blockquote>
+              </blockquote>
+            </blockquote></td>
+          </tr>
+          <tr>
+            <td width="241">MSSubClass:    Identifies the type of dwelling involved in the sale.</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td align="right" width="241">20</td>
+            <td width="328">1-STORY 1946 &amp; NEWER ALL    STYLES</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">30</td>
+            <td width="328">1-STORY 1945 &amp; OLDER</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">40</td>
+            <td width="328">1-STORY W/FINISHED ATTIC ALL    AGES</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">45</td>
+            <td width="328">1-1/2 STORY - UNFINISHED ALL    AGES</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">50</td>
+            <td width="328">1-1/2 STORY FINISHED ALL AGES</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">60</td>
+            <td width="328">2-STORY 1946 &amp; NEWER</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">70</td>
+            <td width="328">2-STORY 1945 &amp; OLDER</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">75</td>
+            <td width="328">2-1/2 STORY ALL AGES</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">80</td>
+            <td width="328">SPLIT OR MULTI-LEVEL</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">85</td>
+            <td width="328">SPLIT FOYER</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">90</td>
+            <td width="328">DUPLEX - ALL STYLES AND AGES</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">120</td>
+            <td width="328">1-STORY PUD (Planned Unit    Development) - 1946 &amp; NEWER</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">150</td>
+            <td width="328">1-1/2 STORY PUD - ALL AGES</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">160</td>
+            <td width="328">2-STORY PUD - 1946 &amp; NEWER</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">180</td>
+            <td width="328">PUD - MULTILEVEL - INCL SPLIT    LEV/FOYER</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">190</td>
+            <td width="328">2 FAMILY CONVERSION - ALL STYLES    AND AGES</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">MSZoning:    Identifies the general zoning classification of the sale.</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       A</td>
+            <td width="328">Agriculture</td>
+          </tr>
+          <tr>
+            <td width="241">       C</td>
+            <td width="328">Commercial</td>
+          </tr>
+          <tr>
+            <td width="241">       FV</td>
+            <td width="328">Floating Village Residential</td>
+          </tr>
+          <tr>
+            <td width="241">       I</td>
+            <td width="328">Industrial</td>
+          </tr>
+          <tr>
+            <td width="241">       RH</td>
+            <td width="328">Residential High Density</td>
+          </tr>
+          <tr>
+            <td width="241">       RL</td>
+            <td width="328">Residential Low Density</td>
+          </tr>
+          <tr>
+            <td width="241">       RP</td>
+            <td width="328">Residential Low Density    Park </td>
+          </tr>
+          <tr>
+            <td width="241">       RM</td>
+            <td width="328">Residential Medium Density</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">LotFrontage:    Linear feet of street connected to property</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">LotArea:    Lot size in square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Street:    Type of road access to property</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Grvl</td>
+            <td width="328">Gravel</td>
+          </tr>
+          <tr>
+            <td width="241">       Pave</td>
+            <td width="328">Paved</td>
+          </tr>
+          <tr>
+            <td width="241">       </td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Alley:    Type of alley access to property</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Grvl</td>
+            <td width="328">Gravel</td>
+          </tr>
+          <tr>
+            <td width="241">       Pave</td>
+            <td width="328">Paved</td>
+          </tr>
+          <tr>
+            <td width="241">       NA </td>
+            <td width="328">No alley access</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">LotShape:    General shape of property</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Reg</td>
+            <td width="328">Regular</td>
+          </tr>
+          <tr>
+            <td width="241">       IR1</td>
+            <td width="328">Slightly irregular</td>
+          </tr>
+          <tr>
+            <td width="241">       IR2</td>
+            <td width="328">Moderately Irregular</td>
+          </tr>
+          <tr>
+            <td width="241">       IR3</td>
+            <td width="328">Irregular</td>
+          </tr>
+          <tr>
+            <td width="241">       </td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">LandContour:    Flatness of the property</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Lvl</td>
+            <td width="328">Near Flat/Level</td>
+          </tr>
+          <tr>
+            <td width="241">       Bnk</td>
+            <td width="328">Banked - Quick and significant    rise from street grade to building</td>
+          </tr>
+          <tr>
+            <td width="241">       HLS</td>
+            <td width="328">Hillside - Significant slope    from side to side</td>
+          </tr>
+          <tr>
+            <td width="241">       Low</td>
+            <td width="328">Depression</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Utilities:    Type of utilities available</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       AllPub</td>
+            <td width="328">All public Utilities    (E,G,W,&amp; S)</td>
+          </tr>
+          <tr>
+            <td width="241">       NoSewr</td>
+            <td width="328">Electricity, Gas, and Water    (Septic Tank)</td>
+          </tr>
+          <tr>
+            <td width="241">       NoSeWa</td>
+            <td width="328">Electricity and Gas Only</td>
+          </tr>
+          <tr>
+            <td width="241">       ELO</td>
+            <td width="328">Electricity only</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">LotConfig:    Lot configuration</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Inside</td>
+            <td width="328">Inside lot</td>
+          </tr>
+          <tr>
+            <td width="241">       Corner</td>
+            <td width="328">Corner lot</td>
+          </tr>
+          <tr>
+            <td width="241">       CulDSac</td>
+            <td width="328">Cul-de-sac</td>
+          </tr>
+          <tr>
+            <td width="241">       FR2</td>
+            <td width="328">Frontage on 2 sides of property</td>
+          </tr>
+          <tr>
+            <td width="241">       FR3</td>
+            <td width="328">Frontage on 3 sides of property</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">LandSlope:    Slope of property</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Gtl</td>
+            <td width="328">Gentle slope</td>
+          </tr>
+          <tr>
+            <td width="241">       Mod</td>
+            <td width="328">Moderate Slope</td>
+          </tr>
+          <tr>
+            <td width="241">       Sev</td>
+            <td width="328">Severe Slope</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Neighborhood:    Physical locations within Ames city limits</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Blmngtn</td>
+            <td width="328">Bloomington Heights</td>
+          </tr>
+          <tr>
+            <td width="241">       Blueste</td>
+            <td width="328">Bluestem</td>
+          </tr>
+          <tr>
+            <td width="241">       BrDale</td>
+            <td width="328">Briardale</td>
+          </tr>
+          <tr>
+            <td width="241">       BrkSide</td>
+            <td width="328">Brookside</td>
+          </tr>
+          <tr>
+            <td width="241">       ClearCr</td>
+            <td width="328">Clear Creek</td>
+          </tr>
+          <tr>
+            <td width="241">       CollgCr</td>
+            <td width="328">College Creek</td>
+          </tr>
+          <tr>
+            <td width="241">       Crawfor</td>
+            <td width="328">Crawford</td>
+          </tr>
+          <tr>
+            <td width="241">       Edwards</td>
+            <td width="328">Edwards</td>
+          </tr>
+          <tr>
+            <td width="241">       Gilbert</td>
+            <td width="328">Gilbert</td>
+          </tr>
+          <tr>
+            <td width="241">       IDOTRR</td>
+            <td width="328">Iowa DOT and Rail Road</td>
+          </tr>
+          <tr>
+            <td width="241">       MeadowV</td>
+            <td width="328">Meadow Village</td>
+          </tr>
+          <tr>
+            <td width="241">       Mitchel</td>
+            <td width="328">Mitchell</td>
+          </tr>
+          <tr>
+            <td width="241">       Names</td>
+            <td width="328">North Ames</td>
+          </tr>
+          <tr>
+            <td width="241">       NoRidge</td>
+            <td width="328">Northridge</td>
+          </tr>
+          <tr>
+            <td width="241">       NPkVill</td>
+            <td width="328">Northpark Villa</td>
+          </tr>
+          <tr>
+            <td width="241">       NridgHt</td>
+            <td width="328">Northridge Heights</td>
+          </tr>
+          <tr>
+            <td width="241">       NWAmes</td>
+            <td width="328">Northwest Ames</td>
+          </tr>
+          <tr>
+            <td width="241">       OldTown</td>
+            <td width="328">Old Town</td>
+          </tr>
+          <tr>
+            <td width="241">       SWISU</td>
+            <td width="328">South &amp; West of Iowa State    University</td>
+          </tr>
+          <tr>
+            <td width="241">       Sawyer</td>
+            <td width="328">Sawyer</td>
+          </tr>
+          <tr>
+            <td width="241">       SawyerW</td>
+            <td width="328">Sawyer West</td>
+          </tr>
+          <tr>
+            <td width="241">       Somerst</td>
+            <td width="328">Somerset</td>
+          </tr>
+          <tr>
+            <td width="241">       StoneBr</td>
+            <td width="328">Stone Brook</td>
+          </tr>
+          <tr>
+            <td width="241">       Timber</td>
+            <td width="328">Timberland</td>
+          </tr>
+          <tr>
+            <td width="241">       Veenker</td>
+            <td width="328">Veenker</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Condition1:    Proximity to various conditions</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Artery</td>
+            <td width="328">Adjacent to arterial street</td>
+          </tr>
+          <tr>
+            <td width="241">       Feedr</td>
+            <td width="328">Adjacent to feeder street</td>
+          </tr>
+          <tr>
+            <td width="241">       Norm</td>
+            <td width="328">Normal</td>
+          </tr>
+          <tr>
+            <td width="241">       RRNn</td>
+            <td width="328">Within 200' of North-South    Railroad</td>
+          </tr>
+          <tr>
+            <td width="241">       RRAn</td>
+            <td width="328">Adjacent to North-South Railroad</td>
+          </tr>
+          <tr>
+            <td width="241">       PosN</td>
+            <td width="328">Near positive off-site    feature--park, greenbelt, etc.</td>
+          </tr>
+          <tr>
+            <td width="241">       PosA</td>
+            <td width="328">Adjacent to postive off-site    feature</td>
+          </tr>
+          <tr>
+            <td width="241">       RRNe</td>
+            <td width="328">Within 200' of East-West    Railroad</td>
+          </tr>
+          <tr>
+            <td width="241">       RRAe</td>
+            <td width="328">Adjacent to East-West Railroad</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Condition2:    Proximity to various conditions (if more than one is present)</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Artery</td>
+            <td width="328">Adjacent to arterial street</td>
+          </tr>
+          <tr>
+            <td width="241">       Feedr</td>
+            <td width="328">Adjacent to feeder street</td>
+          </tr>
+          <tr>
+            <td width="241">       Norm</td>
+            <td width="328">Normal</td>
+          </tr>
+          <tr>
+            <td width="241">       RRNn</td>
+            <td width="328">Within 200' of North-South    Railroad</td>
+          </tr>
+          <tr>
+            <td width="241">       RRAn</td>
+            <td width="328">Adjacent to North-South Railroad</td>
+          </tr>
+          <tr>
+            <td width="241">       PosN</td>
+            <td width="328">Near positive off-site    feature--park, greenbelt, etc.</td>
+          </tr>
+          <tr>
+            <td width="241">       PosA</td>
+            <td width="328">Adjacent to postive off-site    feature</td>
+          </tr>
+          <tr>
+            <td width="241">       RRNe</td>
+            <td width="328">Within 200' of East-West    Railroad</td>
+          </tr>
+          <tr>
+            <td width="241">       RRAe</td>
+            <td width="328">Adjacent to East-West Railroad</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BldgType:    Type of dwelling</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       1Fam</td>
+            <td width="328">Single-family Detached</td>
+          </tr>
+          <tr>
+            <td width="241">       2FmCon</td>
+            <td width="328">Two-family Conversion;    originally built as one-family dwelling</td>
+          </tr>
+          <tr>
+            <td width="241">       Duplx</td>
+            <td width="328">Duplex</td>
+          </tr>
+          <tr>
+            <td width="241">       TwnhsE</td>
+            <td width="328">Townhouse End Unit</td>
+          </tr>
+          <tr>
+            <td width="241">       TwnhsI</td>
+            <td width="328">Townhouse Inside Unit</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">HouseStyle:    Style of dwelling</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       1Story</td>
+            <td width="328">One story</td>
+          </tr>
+          <tr>
+            <td width="241">       1.5Fin</td>
+            <td width="328">One and one-half story: 2nd    level finished</td>
+          </tr>
+          <tr>
+            <td width="241">       1.5Unf</td>
+            <td width="328">One and one-half story: 2nd    level unfinished</td>
+          </tr>
+          <tr>
+            <td width="241">       2Story</td>
+            <td width="328">Two story</td>
+          </tr>
+          <tr>
+            <td width="241">       2.5Fin</td>
+            <td width="328">Two and one-half story: 2nd    level finished</td>
+          </tr>
+          <tr>
+            <td width="241">       2.5Unf</td>
+            <td width="328">Two and one-half story: 2nd    level unfinished</td>
+          </tr>
+          <tr>
+            <td width="241">       SFoyer</td>
+            <td width="328">Split Foyer</td>
+          </tr>
+          <tr>
+            <td width="241">       SLvl</td>
+            <td width="328">Split Level</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">OverallQual:    Rates the overall material and finish of the house</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td align="right" width="241">10</td>
+            <td width="328">Very Excellent</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">9</td>
+            <td width="328">Excellent</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">8</td>
+            <td width="328">Very Good</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">7</td>
+            <td width="328">Good</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">6</td>
+            <td width="328">Above Average</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">5</td>
+            <td width="328">Average</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">4</td>
+            <td width="328">Below Average</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">3</td>
+            <td width="328">Fair</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">2</td>
+            <td width="328">Poor</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">1</td>
+            <td width="328">Very Poor</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">OverallCond:    Rates the overall condition of the house</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td align="right" width="241">10</td>
+            <td width="328">Very Excellent</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">9</td>
+            <td width="328">Excellent</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">8</td>
+            <td width="328">Very Good</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">7</td>
+            <td width="328">Good</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">6</td>
+            <td width="328">Above Average</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">5</td>
+            <td width="328">Average</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">4</td>
+            <td width="328">Below Average</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">3</td>
+            <td width="328">Fair</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">2</td>
+            <td width="328">Poor</td>
+          </tr>
+          <tr>
+            <td align="right" width="241">1</td>
+            <td width="328">Very Poor</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">YearBuilt:    Original construction date</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">YearRemodAdd:    Remodel date (same as construction date if no remodeling or additions)</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">RoofStyle:    Type of roof</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Flat</td>
+            <td width="328">Flat</td>
+          </tr>
+          <tr>
+            <td width="241">       Gable</td>
+            <td width="328">Gable</td>
+          </tr>
+          <tr>
+            <td width="241">       Gambrel</td>
+            <td width="328">Gabrel (Barn)</td>
+          </tr>
+          <tr>
+            <td width="241">       Hip</td>
+            <td width="328">Hip</td>
+          </tr>
+          <tr>
+            <td width="241">       Mansard</td>
+            <td width="328">Mansard</td>
+          </tr>
+          <tr>
+            <td width="241">       Shed</td>
+            <td width="328">Shed</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">RoofMatl:    Roof material</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       ClyTile</td>
+            <td width="328">Clay or Tile</td>
+          </tr>
+          <tr>
+            <td width="241">       CompShg</td>
+            <td width="328">Standard (Composite) Shingle</td>
+          </tr>
+          <tr>
+            <td width="241">       Membran</td>
+            <td width="328">Membrane</td>
+          </tr>
+          <tr>
+            <td width="241">       Metal</td>
+            <td width="328">Metal</td>
+          </tr>
+          <tr>
+            <td width="241">       Roll</td>
+            <td width="328">Roll</td>
+          </tr>
+          <tr>
+            <td width="241">       Tar&amp;Grv</td>
+            <td width="328">Gravel &amp; Tar</td>
+          </tr>
+          <tr>
+            <td width="241">       WdShake</td>
+            <td width="328">Wood Shakes</td>
+          </tr>
+          <tr>
+            <td width="241">       WdShngl</td>
+            <td width="328">Wood Shingles</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Exterior1st:    Exterior covering on house</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       AsbShng</td>
+            <td width="328">Asbestos Shingles</td>
+          </tr>
+          <tr>
+            <td width="241">       AsphShn</td>
+            <td width="328">Asphalt Shingles</td>
+          </tr>
+          <tr>
+            <td width="241">       BrkComm</td>
+            <td width="328">Brick Common</td>
+          </tr>
+          <tr>
+            <td width="241">       BrkFace</td>
+            <td width="328">Brick Face</td>
+          </tr>
+          <tr>
+            <td width="241">       CBlock</td>
+            <td width="328">Cinder Block</td>
+          </tr>
+          <tr>
+            <td width="241">       CemntBd</td>
+            <td width="328">Cement Board</td>
+          </tr>
+          <tr>
+            <td width="241">       HdBoard</td>
+            <td width="328">Hard Board</td>
+          </tr>
+          <tr>
+            <td width="241">       ImStucc</td>
+            <td width="328">Imitation Stucco</td>
+          </tr>
+          <tr>
+            <td width="241">       MetalSd</td>
+            <td width="328">Metal Siding</td>
+          </tr>
+          <tr>
+            <td width="241">       Other</td>
+            <td width="328">Other</td>
+          </tr>
+          <tr>
+            <td width="241">       Plywood</td>
+            <td width="328">Plywood</td>
+          </tr>
+          <tr>
+            <td width="241">       PreCast</td>
+            <td width="328">PreCast</td>
+          </tr>
+          <tr>
+            <td width="241">       Stone</td>
+            <td width="328">Stone</td>
+          </tr>
+          <tr>
+            <td width="241">       Stucco</td>
+            <td width="328">Stucco</td>
+          </tr>
+          <tr>
+            <td width="241">       VinylSd</td>
+            <td width="328">Vinyl Siding</td>
+          </tr>
+          <tr>
+            <td width="241">       Wd Sdng</td>
+            <td width="328">Wood Siding</td>
+          </tr>
+          <tr>
+            <td width="241">       WdShing</td>
+            <td width="328">Wood Shingles</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Exterior2nd:    Exterior covering on house (if more than one material)</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       AsbShng</td>
+            <td width="328">Asbestos Shingles</td>
+          </tr>
+          <tr>
+            <td width="241">       AsphShn</td>
+            <td width="328">Asphalt Shingles</td>
+          </tr>
+          <tr>
+            <td width="241">       BrkComm</td>
+            <td width="328">Brick Common</td>
+          </tr>
+          <tr>
+            <td width="241">       BrkFace</td>
+            <td width="328">Brick Face</td>
+          </tr>
+          <tr>
+            <td width="241">       CBlock</td>
+            <td width="328">Cinder Block</td>
+          </tr>
+          <tr>
+            <td width="241">       CemntBd</td>
+            <td width="328">Cement Board</td>
+          </tr>
+          <tr>
+            <td width="241">       HdBoard</td>
+            <td width="328">Hard Board</td>
+          </tr>
+          <tr>
+            <td width="241">       ImStucc</td>
+            <td width="328">Imitation Stucco</td>
+          </tr>
+          <tr>
+            <td width="241">       MetalSd</td>
+            <td width="328">Metal Siding</td>
+          </tr>
+          <tr>
+            <td width="241">       Other</td>
+            <td width="328">Other</td>
+          </tr>
+          <tr>
+            <td width="241">       Plywood</td>
+            <td width="328">Plywood</td>
+          </tr>
+          <tr>
+            <td width="241">       PreCast</td>
+            <td width="328">PreCast</td>
+          </tr>
+          <tr>
+            <td width="241">       Stone</td>
+            <td width="328">Stone</td>
+          </tr>
+          <tr>
+            <td width="241">       Stucco</td>
+            <td width="328">Stucco</td>
+          </tr>
+          <tr>
+            <td width="241">       VinylSd</td>
+            <td width="328">Vinyl Siding</td>
+          </tr>
+          <tr>
+            <td width="241">       Wd Sdng</td>
+            <td width="328">Wood Siding</td>
+          </tr>
+          <tr>
+            <td width="241">       WdShing</td>
+            <td width="328">Wood Shingles</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">MasVnrType:    Masonry veneer type</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       BrkCmn</td>
+            <td width="328">Brick Common</td>
+          </tr>
+          <tr>
+            <td width="241">       BrkFace</td>
+            <td width="328">Brick Face</td>
+          </tr>
+          <tr>
+            <td width="241">       CBlock</td>
+            <td width="328">Cinder Block</td>
+          </tr>
+          <tr>
+            <td width="241">       None</td>
+            <td width="328">None</td>
+          </tr>
+          <tr>
+            <td width="241">       Stone</td>
+            <td width="328">Stone</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">MasVnrArea:    Masonry veneer area in square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">ExterQual:    Evaluates the quality of the material on the exterior </td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Ex</td>
+            <td width="328">Excellent</td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good</td>
+          </tr>
+          <tr>
+            <td width="241">       TA</td>
+            <td width="328">Average/Typical</td>
+          </tr>
+          <tr>
+            <td width="241">       Fa</td>
+            <td width="328">Fair</td>
+          </tr>
+          <tr>
+            <td width="241">       Po</td>
+            <td width="328">Poor</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">ExterCond:    Evaluates the present condition of the material on the exterior</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Ex</td>
+            <td width="328">Excellent</td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good</td>
+          </tr>
+          <tr>
+            <td width="241">       TA</td>
+            <td width="328">Average/Typical</td>
+          </tr>
+          <tr>
+            <td width="241">       Fa</td>
+            <td width="328">Fair</td>
+          </tr>
+          <tr>
+            <td width="241">       Po</td>
+            <td width="328">Poor</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Foundation:    Type of foundation</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       BrkTil</td>
+            <td width="328">Brick &amp; Tile</td>
+          </tr>
+          <tr>
+            <td width="241">       CBlock</td>
+            <td width="328">Cinder Block</td>
+          </tr>
+          <tr>
+            <td width="241">       PConc</td>
+            <td width="328">Poured Contrete</td>
+          </tr>
+          <tr>
+            <td width="241">       Slab</td>
+            <td width="328">Slab</td>
+          </tr>
+          <tr>
+            <td width="241">       Stone</td>
+            <td width="328">Stone</td>
+          </tr>
+          <tr>
+            <td width="241">       Wood</td>
+            <td width="328">Wood</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BsmtQual:    Evaluates the height of the basement</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Ex</td>
+            <td width="328">Excellent (100+ inches)</td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good (90-99 inches)</td>
+          </tr>
+          <tr>
+            <td width="241">       TA</td>
+            <td width="328">Typical (80-89 inches)</td>
+          </tr>
+          <tr>
+            <td width="241">       Fa</td>
+            <td width="328">Fair (70-79 inches)</td>
+          </tr>
+          <tr>
+            <td width="241">       Po</td>
+            <td width="328">Poor (&lt;70 inches</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Basement</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BsmtCond:    Evaluates the general condition of the basement</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Ex</td>
+            <td width="328">Excellent</td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good</td>
+          </tr>
+          <tr>
+            <td width="241">       TA</td>
+            <td width="328">Typical - slight dampness    allowed</td>
+          </tr>
+          <tr>
+            <td width="241">       Fa</td>
+            <td width="328">Fair - dampness or some cracking    or settling</td>
+          </tr>
+          <tr>
+            <td width="241">       Po</td>
+            <td width="328">Poor - Severe cracking,    settling, or wetness</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Basement</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BsmtExposure:    Refers to walkout or garden level walls</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good Exposure</td>
+          </tr>
+          <tr>
+            <td width="241">       Av</td>
+            <td width="328">Average Exposure (split levels    or foyers typically score average or above)</td>
+          </tr>
+          <tr>
+            <td width="241">       Mn</td>
+            <td width="328">Mimimum Exposure</td>
+          </tr>
+          <tr>
+            <td width="241">       No</td>
+            <td width="328">No Exposure</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Basement</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BsmtFinType1:    Rating of basement finished area</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       GLQ</td>
+            <td width="328">Good Living Quarters</td>
+          </tr>
+          <tr>
+            <td width="241">       ALQ</td>
+            <td width="328">Average Living Quarters</td>
+          </tr>
+          <tr>
+            <td width="241">       BLQ</td>
+            <td width="328">Below Average Living Quarters</td>
+          </tr>
+          <tr>
+            <td width="241">       Rec</td>
+            <td width="328">Average Rec Room</td>
+          </tr>
+          <tr>
+            <td width="241">       LwQ</td>
+            <td width="328">Low Quality</td>
+          </tr>
+          <tr>
+            <td width="241">       Unf</td>
+            <td width="328">Unfinshed</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Basement</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BsmtFinSF1:    Type 1 finished square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BsmtFinType2:    Rating of basement finished area (if multiple types)</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       GLQ</td>
+            <td width="328">Good Living Quarters</td>
+          </tr>
+          <tr>
+            <td width="241">       ALQ</td>
+            <td width="328">Average Living Quarters</td>
+          </tr>
+          <tr>
+            <td width="241">       BLQ</td>
+            <td width="328">Below Average Living Quarters</td>
+          </tr>
+          <tr>
+            <td width="241">       Rec</td>
+            <td width="328">Average Rec Room</td>
+          </tr>
+          <tr>
+            <td width="241">       LwQ</td>
+            <td width="328">Low Quality</td>
+          </tr>
+          <tr>
+            <td width="241">       Unf</td>
+            <td width="328">Unfinshed</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Basement</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BsmtFinSF2:    Type 2 finished square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BsmtUnfSF:    Unfinished square feet of basement area</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">TotalBsmtSF:    Total square feet of basement area</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Heating:    Type of heating</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Floor</td>
+            <td width="328">Floor Furnace</td>
+          </tr>
+          <tr>
+            <td width="241">       GasA</td>
+            <td width="328">Gas forced warm air furnace</td>
+          </tr>
+          <tr>
+            <td width="241">       GasW</td>
+            <td width="328">Gas hot water or steam heat</td>
+          </tr>
+          <tr>
+            <td width="241">       Grav</td>
+            <td width="328">Gravity furnace</td>
+          </tr>
+          <tr>
+            <td width="241">       OthW</td>
+            <td width="328">Hot water or steam heat other    than gas</td>
+          </tr>
+          <tr>
+            <td width="241">       Wall</td>
+            <td width="328">Wall furnace</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">HeatingQC:    Heating quality and condition</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Ex</td>
+            <td width="328">Excellent</td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good</td>
+          </tr>
+          <tr>
+            <td width="241">       TA</td>
+            <td width="328">Average/Typical</td>
+          </tr>
+          <tr>
+            <td width="241">       Fa</td>
+            <td width="328">Fair</td>
+          </tr>
+          <tr>
+            <td width="241">       Po</td>
+            <td width="328">Poor</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">CentralAir:    Central air conditioning</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       N</td>
+            <td width="328">No</td>
+          </tr>
+          <tr>
+            <td width="241">       Y</td>
+            <td width="328">Yes</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Electrical:    Electrical system</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       SBrkr</td>
+            <td width="328">Standard Circuit Breakers &amp;    Romex</td>
+          </tr>
+          <tr>
+            <td width="241">       FuseA</td>
+            <td width="328">Fuse Box over 60 AMP and all    Romex wiring (Average)</td>
+          </tr>
+          <tr>
+            <td width="241">       FuseF</td>
+            <td width="328">60 AMP Fuse Box and mostly Romex    wiring (Fair)</td>
+          </tr>
+          <tr>
+            <td width="241">       FuseP</td>
+            <td width="328">60 AMP Fuse Box and mostly knob    &amp; tube wiring (poor)</td>
+          </tr>
+          <tr>
+            <td width="241">       Mix</td>
+            <td width="328">Mixed</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">1stFlrSF:    First Floor square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"> </td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">2ndFlrSF:    Second floor square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">LowQualFinSF:    Low quality finished square feet (all floors)</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">GrLivArea:    Above grade (ground) living area square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BsmtFullBath:    Basement full bathrooms</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">BsmtHalfBath:    Basement half bathrooms</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">FullBath:    Full bathrooms above grade</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">HalfBath:    Half baths above grade</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Bedroom:    Bedrooms above grade (does NOT include basement bedrooms)</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Kitchen:    Kitchens above grade</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">KitchenQual:    Kitchen quality</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Ex</td>
+            <td width="328">Excellent</td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good</td>
+          </tr>
+          <tr>
+            <td width="241">       TA</td>
+            <td width="328">Typical/Average</td>
+          </tr>
+          <tr>
+            <td width="241">       Fa</td>
+            <td width="328">Fair</td>
+          </tr>
+          <tr>
+            <td width="241">       Po</td>
+            <td width="328">Poor</td>
+          </tr>
+          <tr>
+            <td width="241">       </td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">TotRmsAbvGrd:    Total rooms above grade (does not include bathrooms)</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Functional:    Home functionality (Assume typical unless deductions are warranted)</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Typ</td>
+            <td width="328">Typical Functionality</td>
+          </tr>
+          <tr>
+            <td width="241">       Min1</td>
+            <td width="328">Minor Deductions 1</td>
+          </tr>
+          <tr>
+            <td width="241">       Min2</td>
+            <td width="328">Minor Deductions 2</td>
+          </tr>
+          <tr>
+            <td width="241">       Mod</td>
+            <td width="328">Moderate Deductions</td>
+          </tr>
+          <tr>
+            <td width="241">       Maj1</td>
+            <td width="328">Major Deductions 1</td>
+          </tr>
+          <tr>
+            <td width="241">       Maj2</td>
+            <td width="328">Major Deductions 2</td>
+          </tr>
+          <tr>
+            <td width="241">       Sev</td>
+            <td width="328">Severely Damaged</td>
+          </tr>
+          <tr>
+            <td width="241">       Sal</td>
+            <td width="328">Salvage only</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Fireplaces:    Number of fireplaces</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">FireplaceQu:    Fireplace quality</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Ex</td>
+            <td width="328">Excellent - Exceptional Masonry    Fireplace</td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good - Masonry Fireplace in main    level</td>
+          </tr>
+          <tr>
+            <td width="241">       TA</td>
+            <td width="328">Average - Prefabricated    Fireplace in main living area or Masonry Fireplace in basement</td>
+          </tr>
+          <tr>
+            <td width="241">       Fa</td>
+            <td width="328">Fair - Prefabricated Fireplace    in basement</td>
+          </tr>
+          <tr>
+            <td width="241">       Po</td>
+            <td width="328">Poor - Ben Franklin Stove</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Fireplace</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">GarageType:    Garage location</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       2Types</td>
+            <td width="328">More than one type of garage</td>
+          </tr>
+          <tr>
+            <td width="241">       Attchd</td>
+            <td width="328">Attached to home</td>
+          </tr>
+          <tr>
+            <td width="241">       Basment</td>
+            <td width="328">Basement Garage</td>
+          </tr>
+          <tr>
+            <td width="241">       BuiltIn</td>
+            <td width="328">Built-In (Garage part of house -    typically has room above garage)</td>
+          </tr>
+          <tr>
+            <td width="241">       CarPort</td>
+            <td width="328">Car Port</td>
+          </tr>
+          <tr>
+            <td width="241">       Detchd</td>
+            <td width="328">Detached from home</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Garage</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">GarageYrBlt:    Year garage was built</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">GarageFinish:    Interior finish of the garage</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Fin</td>
+            <td width="328">Finished</td>
+          </tr>
+          <tr>
+            <td width="241">       RFn</td>
+            <td width="328">Rough Finished</td>
+          </tr>
+          <tr>
+            <td width="241">       Unf</td>
+            <td width="328">Unfinished</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Garage</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">GarageCars:    Size of garage in car capacity</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">GarageArea:    Size of garage in square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">GarageQual:    Garage quality</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Ex</td>
+            <td width="328">Excellent</td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good</td>
+          </tr>
+          <tr>
+            <td width="241">       TA</td>
+            <td width="328">Typical/Average</td>
+          </tr>
+          <tr>
+            <td width="241">       Fa</td>
+            <td width="328">Fair</td>
+          </tr>
+          <tr>
+            <td width="241">       Po</td>
+            <td width="328">Poor</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Garage</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">GarageCond:    Garage condition</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Ex</td>
+            <td width="328">Excellent</td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good</td>
+          </tr>
+          <tr>
+            <td width="241">       TA</td>
+            <td width="328">Typical/Average</td>
+          </tr>
+          <tr>
+            <td width="241">       Fa</td>
+            <td width="328">Fair</td>
+          </tr>
+          <tr>
+            <td width="241">       Po</td>
+            <td width="328">Poor</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Garage</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">PavedDrive:    Paved driveway</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Y</td>
+            <td width="328">Paved </td>
+          </tr>
+          <tr>
+            <td width="241">       P</td>
+            <td width="328">Partial Pavement</td>
+          </tr>
+          <tr>
+            <td width="241">       N</td>
+            <td width="328">Dirt/Gravel</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">WoodDeckSF:    Wood deck area in square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">OpenPorchSF:    Open porch area in square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">EnclosedPorch:    Enclosed porch area in square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">3SsnPorch:    Three season porch area in square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">ScreenPorch:    Screen porch area in square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">PoolArea:    Pool area in square feet</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">PoolQC:    Pool quality</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Ex</td>
+            <td width="328">Excellent</td>
+          </tr>
+          <tr>
+            <td width="241">       Gd</td>
+            <td width="328">Good</td>
+          </tr>
+          <tr>
+            <td width="241">       TA</td>
+            <td width="328">Average/Typical</td>
+          </tr>
+          <tr>
+            <td width="241">       Fa</td>
+            <td width="328">Fair</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Pool</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">Fence:    Fence quality</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       GdPrv</td>
+            <td width="328">Good Privacy</td>
+          </tr>
+          <tr>
+            <td width="241">       MnPrv</td>
+            <td width="328">Minimum Privacy</td>
+          </tr>
+          <tr>
+            <td width="241">       GdWo</td>
+            <td width="328">Good Wood</td>
+          </tr>
+          <tr>
+            <td width="241">       MnWw</td>
+            <td width="328">Minimum Wood/Wire</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">No Fence</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">MiscFeature:    Miscellaneous feature not covered in other categories</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Elev</td>
+            <td width="328">Elevator</td>
+          </tr>
+          <tr>
+            <td width="241">       Gar2</td>
+            <td width="328">2nd Garage (if not described in    garage section)</td>
+          </tr>
+          <tr>
+            <td width="241">       Othr</td>
+            <td width="328">Other</td>
+          </tr>
+          <tr>
+            <td width="241">       Shed</td>
+            <td width="328">Shed (over 100 SF)</td>
+          </tr>
+          <tr>
+            <td width="241">       TenC</td>
+            <td width="328">Tennis Court</td>
+          </tr>
+          <tr>
+            <td width="241">       NA</td>
+            <td width="328">None</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">MiscVal:    $Value of miscellaneous feature</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">MoSold:    Month Sold (MM)</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">YrSold:    Year Sold (YYYY)</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">SaleType:    Type of sale</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       WD </td>
+            <td width="328">Warranty Deed - Conventional</td>
+          </tr>
+          <tr>
+            <td width="241">       CWD</td>
+            <td width="328">Warranty Deed - Cash</td>
+          </tr>
+          <tr>
+            <td width="241">       VWD</td>
+            <td width="328">Warranty Deed - VA Loan</td>
+          </tr>
+          <tr>
+            <td width="241">       New</td>
+            <td width="328">Home just constructed and sold</td>
+          </tr>
+          <tr>
+            <td width="241">       COD</td>
+            <td width="328">Court Officer Deed/Estate</td>
+          </tr>
+          <tr>
+            <td width="241">       Con</td>
+            <td width="328">Contract 15% Down payment    regular terms</td>
+          </tr>
+          <tr>
+            <td width="241">       ConLw</td>
+            <td width="328">Contract Low Down payment and    low interest</td>
+          </tr>
+          <tr>
+            <td width="241">       ConLI</td>
+            <td width="328">Contract Low Interest</td>
+          </tr>
+          <tr>
+            <td width="241">       ConLD</td>
+            <td width="328">Contract Low Down</td>
+          </tr>
+          <tr>
+            <td width="241">       Oth</td>
+            <td width="328">Other</td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">SaleCondition:    Condition of sale</td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241"></td>
+            <td width="328"></td>
+          </tr>
+          <tr>
+            <td width="241">       Normal</td>
+            <td width="328">Normal Sale</td>
+          </tr>
+          <tr>
+            <td width="241">       Abnorml</td>
+            <td width="328">Abnormal Sale -  trade, foreclosure, short sale</td>
+          </tr>
+          <tr>
+            <td width="241">       AdjLand</td>
+            <td width="328">Adjoining Land Purchase</td>
+          </tr>
+          <tr>
+            <td width="241">       Alloca</td>
+            <td width="328">Allocation - two linked    properties with separate deeds, typically condo with a garage unit</td>
+          </tr>
+          <tr>
+            <td width="241">       Family</td>
+            <td width="328">Sale between family members</td>
+          </tr>
+          <tr>
+            <td width="241">       Partial</td>
+            <td width="328">Home was not completed when last    assessed (associated with New Homes)</td>
+          </tr>
+        </table></th>
+      </tr>
+    </table>
+    <h1>&nbsp;</h1>
+    <!-- end .content --></div>
+  <!-- end .container --></div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

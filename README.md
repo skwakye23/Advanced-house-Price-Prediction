@@ -1,4 +1,15 @@
-# housePricePrediction
+# housePricePrediction 
+
+This is a back to back project
+Needed Libraries: 
+. sklearn
+. numpy
+. matplotlib / seaborn
+. html/css
+. flash
+. sckitlearn
+. Pandas
+. pickle
 
 Data Source : https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data  
 

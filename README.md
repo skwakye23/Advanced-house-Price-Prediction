@@ -1,6 +1,7 @@
 # housePricePrediction 
 
-This is a back to back project
+This is a complete (back to back) machine learning project. 
+
 Needed Libraries: 
 . sklearn
 . numpy
